@@ -41,7 +41,7 @@ const MyComponent = () => {
 
   const loading = false;
 
-  const ExampleElement = (param) => (
+  const ExampleComponent = (param) => (
     <Chip
       sx={{ minWidth: 110 }}
       label={param.status_one}
@@ -56,7 +56,7 @@ const MyComponent = () => {
     { key: "number", label: "Number" },
     { key: "country", label: "Country", route: ["country", "sub", "name"] },
     { key: "status", label: "Status", route: ["estado", "name"] },
-    { key: "status_one", label: "Status 1", renderCell: ExampleElement },
+    { key: "status_one", label: "Status 1", renderCell: ExampleComponent },
     { key: "action", label: "Acciones", width: "w-20", action: "edit-remove" },
   ];
 
