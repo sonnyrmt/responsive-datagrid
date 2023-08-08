@@ -1,8 +1,8 @@
-# Datagrid Responsivo
+# Responsive DataGrid
 
 ``Copiar carpeta DataGrid (/src/components)``
 
-## CSS Requerido
+## Required CSS
 
 ```css
 .datagrid-scroll {
@@ -26,10 +26,10 @@
 }
 ```
 
-### Ejemplo
+### Example
 
 ```javascript
-// Acciones
+// Actions
 // 'edit', 'edit-remove', 'edit-remove-visibility'
 ```
 
@@ -44,8 +44,8 @@ const MyComponent = () => {
   const ExampleElement = (param) => (
     <Chip
       sx={{ minWidth: 110 }}
-      label={param.estado1}
-      color={param.estado1 === "Aceptado" ? "success" : param.estado1 === "Rechazado" ? "error" : "warning"}
+      label={param.status_one}
+      color={param.status_one === "Accepted" ? "success" : param.status_one === "Rejected" ? "error" : "warning"}
       onClick={() => console.log(param)}
     />
   );
@@ -55,8 +55,8 @@ const MyComponent = () => {
     { key: "name", label: "Patient" },
     { key: "number", label: "Number" },
     { key: "country", label: "Country", route: ["country", "sub", "name"] },
-    { key: "estado", label: "Status", route: ["estado", "name"] },
-    { key: "estado1", label: "Status 1", renderCell: ExampleElement },
+    { key: "status", label: "Status", route: ["estado", "name"] },
+    { key: "status_one", label: "Status 1", renderCell: ExampleElement },
     { key: "action", label: "Acciones", width: "w-20", action: "edit-remove" },
   ];
 
@@ -67,6 +67,7 @@ const MyComponent = () => {
       number: "18.1128",
       country: { sub: { name: "Tuvalu" } },
       status: { name: "Active" },
+      status_one:'Accepted',
     },
   ];
 
