@@ -78,7 +78,7 @@ const DataGridResponsive = ({
               const action = columns.find((column) => column.key === "action")?.action;
               const RenderAction = defaultActions[action];
               let width = window.innerWidth;
-              let maxLength = width <= 768 ? 20 : 45;
+              let maxLength = width <= 1024 ? 16 : 25;
 
               return (
                 <div
@@ -90,16 +90,20 @@ const DataGridResponsive = ({
                     const colData = row[key];
 
                     if (colData !== undefined) {
+                      const cellContent = col.renderCell ? (
+                        col.renderCell(row)
+                      ) : (
+                        <Tooltip title={colData || "S/D"}>
+                          <div className="w-max flex items-center">
+                            <div className="md:hidden mr-2 uppercase font-semibold text-xs text-gray-800 ">{key}:</div>
+                            {colData?.length > maxLength ? colData.slice(0, maxLength - 2) + ".." : colData || "S/D"}
+                          </div>
+                        </Tooltip>
+                      );
+
                       return (
                         <div key={key} className={`${col.width ? col.width : "flex-1"} text-gray-600`}>
-                          <Tooltip title={colData || "S/D"}>
-                            <div className="w-max flex items-center">
-                              <div className="md:hidden mr-2 uppercase font-semibold text-xs text-gray-800 ">
-                                {key}:
-                              </div>
-                              {colData?.length > maxLength ? colData.slice(0, maxLength - 2) + ".." : colData || "S/D"}
-                            </div>
-                          </Tooltip>
+                          {cellContent}
                         </div>
                       );
                     }

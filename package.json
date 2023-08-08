@@ -1,7 +1,7 @@
 {
-  "name": "responsive-datagrid",
+  "name": "datagrid-responsive",
   "private": false,
-  "version": "1.0.7",
+  "version": "1.0.1",
   "author": "sonnyrmt",
   "type": "module",
   "scripts": {
