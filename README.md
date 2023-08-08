@@ -1,6 +1,6 @@
 # Datagrid Responsivo
 
-``Copiar carpeta DataGrid (/components)``
+``Copiar carpeta DataGrid (/src/components)``
 
 ## CSS Requerido
 
