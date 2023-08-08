@@ -39,12 +39,22 @@ const MyComponent = () => {
 
   const loading = false;
 
+  const ExampleElement = (param) => (
+    <Chip
+      sx={{ minWidth: 110 }}
+      label={param.estado1}
+      color={param.estado1 === "Aceptado" ? "success" : param.estado1 === "Rechazado" ? "error" : "warning"}
+      onClick={() => console.log(param)}
+    />
+  );
+
   const columns = [
     { key: "id", label: "ID", width: "w-16" },
     { key: "name", label: "Patient" },
     { key: "number", label: "Number" },
     { key: "country", label: "Country", route: ["country", "sub", "name"] },
-    { key: "status", label: "Status", route: ["estado", "name"] },
+    { key: "estado", label: "Status", route: ["estado", "name"] },
+    { key: "estado1", label: "Status 1", renderCell: ExampleElement },
     { key: "action", label: "Acciones", width: "w-20", action: "edit-remove" },
   ];
 
@@ -73,5 +83,3 @@ const MyComponent = () => {
 
 export default MyComponent;
 ```
-
-`Trabajando en RenderCell`
